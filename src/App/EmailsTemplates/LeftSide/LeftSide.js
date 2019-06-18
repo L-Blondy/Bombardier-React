@@ -1,21 +1,52 @@
 import React from "react";
-import Language from "./Language/Language"
-import Strike from "./Strike/Strike"
-import Gender from "./Gender/Gender"
-import Name from "./Name/Name"
-import Incident from "./Incident/Incident"
-import Copy from "./Copy/Copy"
+import RadioSection from "../../Modules/RadioSection/RadioSection";
+import CopySection from "../../Modules/CopySection/CopySection";
+import ResetSection from "../../Modules/ResetSection/ResetSection";
+import TextFieldSection from "../../Modules/TextFieldSection/TextFieldSection";
 
-function LeftSide ( { getRadio, getName, getIncident, toggleCopyCmd, toggleCopyAnimation } ) {
+import Name from "./Name/Name";
+import Incident from "./Incident/Incident";
+import "./LeftSide.css";
+
+function LeftSide ( { getRadio, getTextInput, toggleCopyCmd, toggleCopyAnimation, handleReset } ) {
 
 	return (
 		<div className="LeftSide">
-			<Language getRadio={ getRadio } />
-			<Strike getRadio={ getRadio } />
-			<Gender getRadio={ getRadio } />
-			<Name getName={ getName } />
-			<Incident getIncident={ getIncident } />
-			<Copy toggleCopyAnimation={ toggleCopyAnimation } toggleCopyCmd={ toggleCopyCmd } />
+			<RadioSection
+				className="Language"
+				IDs={ [ "English", "French" ] }
+				getRadio={ getRadio }
+			/>
+			<RadioSection
+				className="Strike"
+				IDs={ [ "Closure", "S1", "S2", "S3" ] }
+				getRadio={ getRadio }
+			/>
+			<RadioSection
+				className="Gender"
+				IDs={ [ "Male", "Female" ] }
+				getRadio={ getRadio }
+			/>
+			<TextFieldSection
+				className="Name"
+				placeholder="Name here"
+				pattern="[\sA-Za-z]{3,}"
+				getTextInput={ getTextInput }
+			/>
+			<TextFieldSection
+				className="Incident"
+				placeholder="INC0000000"
+				maxLength="10"
+				pattern="(inc|inC|iNC|INC|iNc|INc|Inc|InC)+[0-9]{7}"
+				getTextInput={ getTextInput }
+			/>
+			<CopySection
+				toggleCopyAnimation={ toggleCopyAnimation }
+				toggleCopyCmd={ toggleCopyCmd }
+			/>
+			<ResetSection
+				handleReset={ handleReset }
+			/>
 		</div>
 	)
 }

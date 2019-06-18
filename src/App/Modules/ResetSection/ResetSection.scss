@@ -1,0 +1,11 @@
+@import "../@mixin/mixin.scss";
+
+.ResetSection {
+      display: flex;
+      align-items: right;
+      justify-content: flex-end;
+
+      input {
+            @include form-font;
+      }
+}

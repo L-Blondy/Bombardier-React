@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+
+@mixin uncheked-buttons {
+      display: flex;
+      min-width: 100px;
+      box-shadow: 0 0 0 1px $button-border-clr;
+      align-items: center;
+      justify-content: center;
+      background: $button-bkg;
+      border-radius: 1px;
+      height: 23px;
+      color: $button-font-clr;
+      user-select: none;
+}
+
+@mixin form-font {
+      padding: 6px 0;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 0.93rem;
+      letter-spacing: 1.5px;
+}

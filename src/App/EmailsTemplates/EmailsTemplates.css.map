@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACX,OAAO,EAAE,IAAI;CAClB",
+    "sources": [
+        "EmailsTemplates.scss"
+    ],
+    "names": [],
+    "file": "EmailsTemplates.css"
+}

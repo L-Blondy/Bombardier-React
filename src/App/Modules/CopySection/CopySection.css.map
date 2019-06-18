@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,2EAAI;ADEZ,AAAA,YAAY,CAAC;EACP,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,KAAK;EAClB,eAAe,EAAE,QAAQ;CAM9B;;AATD,AAKM,YALM,CAKN,MAAM,CAAC;ECSP,OAAO,EAAE,KAAK;EACd,WAAW,EAAE,6BAA6B;EAC1C,SAAS,EAAE,OAAO;EAClB,cAAc,EAAE,KAAK;CDVpB",
+    "sources": [
+        "CopySection.scss",
+        "../@mixin/mixin.scss"
+    ],
+    "names": [],
+    "file": "CopySection.css"
+}

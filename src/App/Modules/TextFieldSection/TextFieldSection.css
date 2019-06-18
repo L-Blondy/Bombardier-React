@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+.TextFieldSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: right;
+      -ms-flex-align: right;
+          align-items: right;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 6px 0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.93rem;
+  letter-spacing: 1.5px;
+}
+/*# sourceMappingURL=TextFieldSection.css.map */

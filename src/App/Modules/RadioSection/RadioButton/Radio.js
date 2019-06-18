@@ -1,4 +1,5 @@
 import React from "react";
+import "./Radio.css"
 
 function Radio ( { name, id, getRadio } ) {
 
