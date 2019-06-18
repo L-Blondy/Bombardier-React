@@ -3,9 +3,6 @@ import RadioSection from "../../Modules/RadioSection/RadioSection";
 import CopySection from "../../Modules/CopySection/CopySection";
 import ResetSection from "../../Modules/ResetSection/ResetSection";
 import TextFieldSection from "../../Modules/TextFieldSection/TextFieldSection";
-
-import Name from "./Name/Name";
-import Incident from "./Incident/Incident";
 import "./LeftSide.css";
 
 function LeftSide ( { getRadio, getTextInput, toggleCopyCmd, toggleCopyAnimation, handleReset } ) {
