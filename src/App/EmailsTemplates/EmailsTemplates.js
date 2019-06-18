@@ -1,6 +1,6 @@
 import React from "react";
-import LeftSide from "./LeftSide/LeftSide";
-import RightSide from "./RightSide/RightSide";
+import LeftSide from "../Modules/$LeftSide/LeftSide";
+import RightSide from "../Modules/$RightSide/RightSide";
 import "./EmailsTemplates.css";
 
 const templates = {
@@ -35,7 +35,6 @@ class EmailsTemplates extends React.Component {
 	}
 
 	componentDidMount = () => {
-		console.log( document.querySelector( `.EmailsTemplates .${ this.state.Language }` ) )
 		document.querySelector( `.EmailsTemplates .${ this.state.Language }` ).checked = true;
 		document.querySelector( `.EmailsTemplates .${ this.state.Strike }` ).checked = true;
 		this.setText();

@@ -1,8 +1,8 @@
 import React from "react";
-import RadioSection from "../../Modules/RadioSection/RadioSection";
-import CopySection from "../../Modules/CopySection/CopySection";
-import ResetSection from "../../Modules/ResetSection/ResetSection";
-import TextFieldSection from "../../Modules/TextFieldSection/TextFieldSection";
+import RadioSection from "../RadioSection/RadioSection";
+import CopySection from "../CopySection/CopySection";
+import ResetSection from "../ResetSection/ResetSection";
+import TextFieldSection from "../TextFieldSection/TextFieldSection";
 import "./LeftSide.css";
 
 function LeftSide ( { getRadio, getTextInput, toggleCopyCmd, toggleCopyAnimation, handleReset } ) {
