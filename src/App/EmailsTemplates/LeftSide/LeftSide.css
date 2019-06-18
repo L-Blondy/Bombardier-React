@@ -1,4 +1,6 @@
 .LeftSide {
-  margin-right: 20px;
+  padding-right: 25px;
+  margin-right: 25px;
+  border-right: dotted 1px #cbdce0;
 }
 /*# sourceMappingURL=LeftSide.css.map */

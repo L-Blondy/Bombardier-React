@@ -35,13 +35,14 @@ class EmailsTemplates extends React.Component {
 	}
 
 	componentDidMount = () => {
-		document.getElementById( this.state.Language ).checked = true;
-		document.getElementById( this.state.Strike ).checked = true;
+		console.log( document.querySelector( `.EmailsTemplates .${ this.state.Language }` ) )
+		document.querySelector( `.EmailsTemplates .${ this.state.Language }` ).checked = true;
+		document.querySelector( `.EmailsTemplates .${ this.state.Strike }` ).checked = true;
 		this.setText();
 	}
 
 	getRadio = ( e ) => {
-		this.setState( { [ e.target.name ]: e.target.id } )
+		this.setState( { [ e.target.name ]: e.target.className } )
 		setTimeout( () => this.setText() );
 		setTimeout( () => this.resizeTextArea() );
 	}
@@ -70,14 +71,13 @@ class EmailsTemplates extends React.Component {
 	setText = () => {
 		const { Language, Strike, Gender, Name, Incident } = this.state;
 		const curLang = templates[ Language ];
-		console.log( curLang[ Gender ] )
 
 		this.setState( {
 			text: curLang[ Strike ][ 0 ]
 				+ ( Gender == "" ? "" : curLang[ Gender ] )
-				+ this.state.Name
+				+ Name
 				+ curLang[ Strike ][ 1 ]
-				+ this.state.Incident
+				+ Incident
 				+ curLang[ Strike ][ 2 ]
 		} );
 	}
@@ -89,11 +89,16 @@ class EmailsTemplates extends React.Component {
 	}
 
 	toggleCopyCmd = ( e ) => {
-		console.log( "toggleCopyCmd" )
+		this.setState( { copyAnimation: "inactive" } )
+		setTimeout( () => this.setState( { copyAnimation: "active" } ), 17 )
+
+		const textarea = document.querySelector( ".RightSide textarea" );
+		textarea.select();
+		document.execCommand( 'copy' );
+		textarea.setSelectionRange( 0, 0 );
 	}
 
 	render () {
-		const { handleReset } = this.props;
 		return (
 			<div className="EmailsTemplates">
 				<LeftSide
@@ -101,9 +106,12 @@ class EmailsTemplates extends React.Component {
 					getTextInput={ this.getTextInput }
 					toggleCopyAnimation={ this.state.copyAnimation }
 					toggleCopyCmd={ this.toggleCopyCmd }
-					handleReset={ handleReset }
+					handleReset={ this.props.handleReset }
 				/>
-				<RightSide text={ this.state.text } />
+				<RightSide
+					text={ this.state.text }
+					toggleCopyAnimation={ this.state.copyAnimation }
+				/>
 			</div>
 		)
 	}

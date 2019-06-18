@@ -4,7 +4,7 @@ import "./TextFieldSection.css";
 function TextFieldSection ( { getTextInput, className, placeholder, pattern, maxLength } ) {
 
 	return (
-		<div className={ TextFieldSection + className }>
+		<div className={ "TextFieldSection " + className }>
 			<input
 				id={ className }
 				type="text"

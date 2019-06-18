@@ -12,9 +12,14 @@
 }
 
 .ResetSection input {
-  padding: 6px 0;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.93rem;
+  font-size: 0.7rem;
   letter-spacing: 1.5px;
+  height: 23px;
+  padding: 0 6px;
+  color: #888;
+  background: white;
+  border: solid 1px #bbb;
+  border-radius: 2px;
 }
 /*# sourceMappingURL=ResetSection.css.map */

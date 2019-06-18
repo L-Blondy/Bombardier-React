@@ -9,9 +9,27 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding: 6px 0;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 0.93rem;
   letter-spacing: 1.5px;
+}
+
+.TextFieldSection input {
+  border: none;
+  -webkit-box-shadow: 0 0 0 1px #a8c8ce;
+          box-shadow: 0 0 0 1px #a8c8ce;
+  border-radius: 2px;
+  padding: 0 10px;
+  height: 23px;
+  width: 135px;
+}
+
+.TextFieldSection input:focus {
+  outline: none;
+}
+
+.TextFieldSection input:valid {
+  -webkit-box-shadow: 0 0 1px 1px #74e974;
+          box-shadow: 0 0 1px 1px #74e974;
 }
 /*# sourceMappingURL=TextFieldSection.css.map */

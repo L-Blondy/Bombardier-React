@@ -1,4 +1,61 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+@-webkit-keyframes copyBtn-effect {
+  0% {
+    -webkit-transform-origin: left;
+            transform-origin: left;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  50% {
+    -webkit-transform-origin: left;
+            transform-origin: left;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  70% {
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    opacity: 0;
+  }
+}
+@keyframes copyBtn-effect {
+  0% {
+    -webkit-transform-origin: left;
+            transform-origin: left;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  50% {
+    -webkit-transform-origin: left;
+            transform-origin: left;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  70% {
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
 .CopySection {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,9 +69,50 @@
 }
 
 .CopySection button {
-  padding: 6px 0;
+  position: relative;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 0.93rem;
   letter-spacing: 1.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  min-width: 100px;
+  -webkit-box-shadow: 0 0 0 1px #a8c8ce;
+          box-shadow: 0 0 0 1px #a8c8ce;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #f1f7f8;
+  border-radius: 1px;
+  height: 23px;
+  color: #195e79;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.CopySection .active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #55bcca;
+  left: 0;
+  pointer-events: none;
+  -webkit-box-shadow: 0 0 0 1px teal;
+          box-shadow: 0 0 0 1px teal;
+  border-radius: 1px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  opacity: 0.9;
+  -webkit-animation: copyBtn-effect 800ms linear;
+          animation: copyBtn-effect 800ms linear;
 }
 /*# sourceMappingURL=CopySection.css.map */

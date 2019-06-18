@@ -1,14 +1,5 @@
 @import "../../@mixin/mixin.scss";
-
-//Unchecked buttons
-$button-bkg: rgb(241, 247, 248);
-$button-font-clr: rgb(25, 94, 121);
-$button-border-clr: rgb(168, 200, 206);
-
-//Checked buttons
-$checked-button-bkg: rgb(85, 188, 202);
-$checked-button-font-clr: rgb(250, 250, 245);
-$checked-button-border-clr: teal;
+@import "../../@variables/variables.scss";
 
 .Radio {
       input {

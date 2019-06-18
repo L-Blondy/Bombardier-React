@@ -27,7 +27,6 @@ function LeftSide ( { getRadio, getTextInput, toggleCopyCmd, toggleCopyAnimation
 			<TextFieldSection
 				className="Name"
 				placeholder="Name here"
-				pattern="[\sA-Za-z]{3,}"
 				getTextInput={ getTextInput }
 			/>
 			<TextFieldSection
