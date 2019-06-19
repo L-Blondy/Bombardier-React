@@ -2,7 +2,7 @@ import React from "react";
 import Radio from "./RadioButton/Radio.js";
 import "./RadioSection.css";
 
-function RadioSection ( { getRadio, className, IDs } ) {
+function RadioSection ( { getRadio, className, IDs, legend } ) {
 
 	/*
 	 * className = radio input Name
@@ -13,6 +13,7 @@ function RadioSection ( { getRadio, className, IDs } ) {
 
 	const radioButtons = IDs.map( ID => {
 		return (
+
 			<Radio
 				content={ ID }
 				name={ className }
@@ -26,7 +27,9 @@ function RadioSection ( { getRadio, className, IDs } ) {
 	return (
 		<div className={ "RadioSection " + className }>
 			{ radioButtons }
+			<legend>{ legend }</legend>
 		</div>
+
 	)
 }
 

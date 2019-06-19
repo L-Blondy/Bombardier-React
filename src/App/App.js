@@ -15,7 +15,7 @@ class App extends React.Component {
 		this.setState( {
 			key: {
 				strikes: this.state.key.strikes + 1,
-				logs: this.state.key.logs
+				logs: this.state.key.logs + 1
 			}
 		} )
 	}

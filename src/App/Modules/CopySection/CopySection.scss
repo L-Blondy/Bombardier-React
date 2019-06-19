@@ -28,7 +28,11 @@
 .CopySection {
       display: flex;
       align-items: right;
-      justify-content: flex-end;
+	justify-content: flex-end;
+	
+	legend {
+      @include legend;
+}
 
       button {
             position: relative;

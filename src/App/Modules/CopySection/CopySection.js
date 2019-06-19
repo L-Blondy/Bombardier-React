@@ -11,6 +11,7 @@ function CopySection ( { toggleCopyCmd, toggleCopyAnimation, className } ) {
 			>
 				Copy
 			</button>
+			<legend></legend>
 		</div>
 	)
 }

@@ -1,6 +1,10 @@
 import React from "react";
 import LeftSide from "../Modules/$LeftSide/LeftSide";
 import RightSide from "../Modules/$RightSide/RightSide";
+import RadioSection from "../Modules/RadioSection/RadioSection";
+import CopySection from "../Modules/CopySection/CopySection";
+import ResetSection from "../Modules/ResetSection/ResetSection";
+import TextFieldSection from "../Modules/TextFieldSection/TextFieldSection";
 import "./EmailsTemplates.css";
 
 const templates = {
@@ -37,13 +41,13 @@ class EmailsTemplates extends React.Component {
 	componentDidMount = () => {
 		document.querySelector( `.EmailsTemplates .${ this.state.Language }` ).checked = true;
 		document.querySelector( `.EmailsTemplates .${ this.state.Strike }` ).checked = true;
-		this.setText();
+		this.resizeTextArea()
 	}
+
+	componentDidUpdate = () => this.resizeTextArea()
 
 	getRadio = ( e ) => {
 		this.setState( { [ e.target.name ]: e.target.className } )
-		setTimeout( () => this.setText() );
-		setTimeout( () => this.resizeTextArea() );
 	}
 
 	getTextInput = ( e ) => {
@@ -62,27 +66,10 @@ class EmailsTemplates extends React.Component {
 		}
 		else
 			this.setState( { [ e.target.id ]: "" } );
-
-		setTimeout( () => this.setText() );
-		setTimeout( () => this.resizeTextArea() );
-	}
-
-	setText = () => {
-		const { Language, Strike, Gender, Name, Incident } = this.state;
-		const curLang = templates[ Language ];
-
-		this.setState( {
-			text: curLang[ Strike ][ 0 ]
-				+ ( Gender == "" ? "" : curLang[ Gender ] )
-				+ Name
-				+ curLang[ Strike ][ 1 ]
-				+ Incident
-				+ curLang[ Strike ][ 2 ]
-		} );
 	}
 
 	resizeTextArea = () => {
-		const textarea = document.querySelector( ".RightSide textarea" );
+		const textarea = document.querySelector( ".EmailsTemplates .RightSide textarea" );
 		textarea.style.height = "10px";
 		textarea.style.height = textarea.scrollHeight + 10 + "px";
 	}
@@ -100,17 +87,64 @@ class EmailsTemplates extends React.Component {
 	render () {
 		return (
 			<div className="EmailsTemplates">
-				<LeftSide
-					getRadio={ this.getRadio }
-					getTextInput={ this.getTextInput }
-					toggleCopyAnimation={ this.state.copyAnimation }
-					toggleCopyCmd={ this.toggleCopyCmd }
-					handleReset={ this.props.handleReset }
-				/>
-				<RightSide
-					text={ this.state.text }
-					toggleCopyAnimation={ this.state.copyAnimation }
-				/>
+				<LeftSide content={ <>
+					<RadioSection
+						className="Language"
+						legend="Language"
+						IDs={ [ "English", "French" ] }
+						getRadio={ this.getRadio }
+					/>
+					<RadioSection
+						className="Strike"
+						legend="Strike"
+						IDs={ [ "Closure", "S1", "S2", "S3" ] }
+						getRadio={ this.getRadio }
+					/>
+					<RadioSection
+						className="Gender"
+						legend="Gender"
+						IDs={ [ "Male", "Female" ] }
+						getRadio={ this.getRadio }
+					/>
+					<TextFieldSection
+						className="Name"
+						legend="Name"
+						placeholder="Name here"
+						getTextInput={ this.getTextInput }
+					/>
+					<TextFieldSection
+						className="Incident"
+						legend="Incident"
+						placeholder="INC0000000"
+						maxLength="10"
+						pattern="(inc|inC|iNC|INC|iNc|INc|Inc|InC)+[0-9]{7}"
+						getTextInput={ this.getTextInput }
+					/>
+					<CopySection
+						toggleCopyAnimation={ this.state.copyAnimation }
+						toggleCopyCmd={ this.toggleCopyCmd }
+					/>
+					<ResetSection
+						handleReset={ this.props.handleReset }
+					/>
+				</> } />
+				<RightSide content={ <>
+					<div className={ this.state.copyAnimation } >
+						<textarea
+							value={
+								templates[ this.state.Language ][ this.state.Strike ][ 0 ]
+								+ ( this.state.Gender === "" ? "" : templates[ this.state.Language ][ this.state.Gender ] )
+								+ this.state.Name
+								+ templates[ this.state.Language ][ this.state.Strike ][ 1 ]
+								+ this.state.Incident
+								+ templates[ this.state.Language ][ this.state.Strike ][ 2 ]
+							}
+							cols="70"
+							rows="5"
+							readOnly
+						/>
+					</div>
+				</> } />
 			</div>
 		)
 	}

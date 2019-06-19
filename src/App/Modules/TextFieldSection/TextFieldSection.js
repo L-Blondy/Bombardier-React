@@ -1,7 +1,7 @@
 import React from "react";
 import "./TextFieldSection.css";
 
-function TextFieldSection ( { getTextInput, className, placeholder, pattern, maxLength } ) {
+function TextFieldSection ( { getTextInput, className, placeholder, pattern, maxLength, legend } ) {
 
 	return (
 		<div className={ "TextFieldSection " + className }>
@@ -15,6 +15,7 @@ function TextFieldSection ( { getTextInput, className, placeholder, pattern, max
 				onChange={ getTextInput }
 				required
 			/>
+			<legend>{ legend }</legend>
 		</div>
 	)
 }

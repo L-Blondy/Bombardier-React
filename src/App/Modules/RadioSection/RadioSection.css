@@ -13,4 +13,22 @@
   font-size: 0.93rem;
   letter-spacing: 1.5px;
 }
+
+.RadioSection legend {
+  font-family: "Source Sans Pro", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  margin-left: 15px;
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+}
 /*# sourceMappingURL=RadioSection.css.map */

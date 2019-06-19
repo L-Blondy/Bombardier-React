@@ -11,6 +11,24 @@
           justify-content: flex-end;
 }
 
+.ResetSection legend {
+  font-family: "Source Sans Pro", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  margin-left: 15px;
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+}
+
 .ResetSection input {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 0.7rem;
