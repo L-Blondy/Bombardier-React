@@ -1,0 +1,30 @@
+@import "../../../Sass/mixin/mixin.scss";
+@import "../../../Sass/variables/variables.scss";
+
+.TextFieldSection {
+    display: flex;
+    align-items: right;
+    justify-content: flex-end;
+    @include form-font;
+
+    legend {
+        @include legend;
+    }
+
+    input {
+        border: none;
+        box-shadow: 0 0 0 1px $button-border-clr;
+        border-radius: 2px;
+        padding: 0 10px;
+        height: $left-components-height;
+        width: 135px;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:valid {
+            box-shadow: 0 0 1px 1px rgb(116, 233, 116);
+        }
+    }
+}

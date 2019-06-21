@@ -1,6 +1,6 @@
 import React from 'react';
-import EmailsTemplates from "./EmailsTemplates/EmailsTemplates";
-import LogsTemplates from "./LogsTemplates/LogsTemplates";
+import EmailsTemplates from "./Components/1st Level/EmailsTemplates/EmailsTemplates";
+import LogsTemplates from "./Components/1st Level/LogsTemplates/LogsTemplates";
 
 class App extends React.Component {
 
@@ -8,7 +8,8 @@ class App extends React.Component {
 		key: {
 			strikes: 1000,
 			logs: 2000
-		}
+		},
+		strike: "S1"
 	}
 
 	handleReset = () => {
@@ -23,8 +24,14 @@ class App extends React.Component {
 	render () {
 		return (
 			<div className="App">
-				<EmailsTemplates key={ this.state.key.strikes } handleReset={ this.handleReset } />
-				<LogsTemplates key={ this.state.key.logs } handleReset={ this.handleReset } />
+				<EmailsTemplates
+					key={ this.state.key.strikes }
+					handleReset={ this.handleReset }
+				/>
+				<LogsTemplates
+					key={ this.state.key.logs }
+					handleReset={ this.handleReset }
+				/>
 			</div>
 		);
 	}

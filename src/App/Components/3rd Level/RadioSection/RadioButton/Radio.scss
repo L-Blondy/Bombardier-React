@@ -1,0 +1,20 @@
+@import "../../../../Sass/mixin/mixin.scss";
+@import "../../../../Sass/variables/variables.scss";
+
+.Radio {
+    input {
+        display: none;
+    }
+
+    label {
+        @include uncheked-buttons;
+    }
+
+    input:checked+label {
+        position: relative;
+        background: $checked-button-bkg;
+        color: $checked-button-font-clr;
+        z-index: 1;
+        box-shadow: 0 0 0 1px $checked-button-border-clr;
+    }
+}

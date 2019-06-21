@@ -1,10 +1,10 @@
 import React from "react";
-import LeftSide from "../Modules/$LeftSide/LeftSide";
-import RightSide from "../Modules/$RightSide/RightSide";
-import RadioSection from "../Modules/RadioSection/RadioSection";
-import CopySection from "../Modules/CopySection/CopySection";
-import ResetSection from "../Modules/ResetSection/ResetSection";
-import TextFieldSection from "../Modules/TextFieldSection/TextFieldSection";
+import LeftSide from "../../2nd Level/LeftSide/LeftSide";
+import RightSide from "../../2nd Level/RightSide/RightSide";
+import RadioSection from "../../3rd Level/RadioSection/RadioSection";
+import CopySection from "../../3rd Level/CopySection/CopySection";
+import ResetSection from "../../3rd Level/ResetSection/ResetSection";
+import TextFieldSection from "../../3rd Level/TextFieldSection/TextFieldSection";
 import "./EmailsTemplates.css";
 
 const templates = {
@@ -41,10 +41,7 @@ class EmailsTemplates extends React.Component {
 	componentDidMount = () => {
 		document.querySelector( `.EmailsTemplates .${ this.state.Language }` ).checked = true;
 		document.querySelector( `.EmailsTemplates .${ this.state.Strike }` ).checked = true;
-		this.resizeTextArea()
 	}
-
-	componentDidUpdate = () => this.resizeTextArea()
 
 	getRadio = ( e ) => {
 		this.setState( { [ e.target.name ]: e.target.className } )
@@ -58,7 +55,7 @@ class EmailsTemplates extends React.Component {
 					: " " + e.target.value.toUpperCase()
 			);
 			value = (
-				value.charAt( value.length - 1 ) === " "
+				value.charAt( value.lengasdth - 1 ) === " "
 					? value.slice( 0, value.length - 1 )
 					: value
 			);
@@ -66,12 +63,6 @@ class EmailsTemplates extends React.Component {
 		}
 		else
 			this.setState( { [ e.target.id ]: "" } );
-	}
-
-	resizeTextArea = () => {
-		const textarea = document.querySelector( ".EmailsTemplates .RightSide textarea" );
-		textarea.style.height = "10px";
-		textarea.style.height = textarea.scrollHeight + 10 + "px";
 	}
 
 	toggleCopyCmd = ( e ) => {
@@ -82,6 +73,21 @@ class EmailsTemplates extends React.Component {
 		textarea.select();
 		document.execCommand( 'copy' );
 		textarea.setSelectionRange( 0, 0 );
+		this.resetAfterCopy();
+	}
+
+	resetAfterCopy = () => {
+		setTimeout( () => {
+			if ( this.state.Gender !== "" )
+				document.querySelector( `.EmailsTemplates .${ this.state.Gender }` ).checked = false;
+			document.querySelector( `.EmailsTemplates #Name` ).value = "";
+			document.querySelector( `.EmailsTemplates #Incident` ).value = "";
+			this.setState( {
+				Gender: "",
+				Name: "",
+				Incident: ""
+			} )
+		}, 1000 )
 	}
 
 	render () {
@@ -128,7 +134,7 @@ class EmailsTemplates extends React.Component {
 						handleReset={ this.props.handleReset }
 					/>
 				</> } />
-				<RightSide content={ <>
+				<RightSide templateName="EmailsTemplates" content={ <>
 					<div className={ this.state.copyAnimation } >
 						<textarea
 							value={
@@ -140,7 +146,7 @@ class EmailsTemplates extends React.Component {
 								+ templates[ this.state.Language ][ this.state.Strike ][ 2 ]
 							}
 							cols="70"
-							rows="5"
+							rows="1"
 							readOnly
 						/>
 					</div>
