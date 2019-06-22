@@ -9,7 +9,11 @@ class App extends React.Component {
 			strikes: 1000,
 			logs: 2000
 		},
-		strike: "S1"
+		Strike: "S1"
+	}
+
+	getStrike = ( e ) => {
+		this.setState( { Strike: e.target.className } )
 	}
 
 	handleReset = () => {
@@ -27,10 +31,14 @@ class App extends React.Component {
 				<EmailsTemplates
 					key={ this.state.key.strikes }
 					handleReset={ this.handleReset }
+					Strike={ this.state.Strike }
+					getStrike={ this.getStrike }
 				/>
 				<LogsTemplates
 					key={ this.state.key.logs }
 					handleReset={ this.handleReset }
+					Strike={ this.state.Strike }
+					getStrike={ this.getStrike }
 				/>
 			</div>
 		);

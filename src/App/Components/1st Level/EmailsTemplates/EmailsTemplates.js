@@ -30,7 +30,6 @@ class EmailsTemplates extends React.Component {
 
 	state = {
 		Language: "French",
-		Strike: "S1",
 		Gender: "",
 		Name: "",
 		Incident: "",
@@ -40,10 +39,21 @@ class EmailsTemplates extends React.Component {
 
 	componentDidMount = () => {
 		document.querySelector( `.EmailsTemplates .${ this.state.Language }` ).checked = true;
-		document.querySelector( `.EmailsTemplates .${ this.state.Strike }` ).checked = true;
+		document.querySelector( `.EmailsTemplates .${ this.props.Strike }` ).checked = true;
+	}
+
+	componentWillUpdate = () => {
+		document.querySelector( `.EmailsTemplates .${ this.props.Strike }` ).checked = false;
+	}
+
+	componentDidUpdate = () => {
+		document.querySelector( `.EmailsTemplates .${ this.props.Strike }` ).checked = true;
 	}
 
 	getRadio = ( e ) => {
+		//console.log( "Email radio change" )
+		if ( e.target.name === "Strike" )
+			this.props.getStrike( e )
 		this.setState( { [ e.target.name ]: e.target.className } )
 	}
 
@@ -138,12 +148,12 @@ class EmailsTemplates extends React.Component {
 					<div className={ this.state.copyAnimation } >
 						<textarea
 							value={
-								templates[ this.state.Language ][ this.state.Strike ][ 0 ]
+								templates[ this.state.Language ][ this.props.Strike ][ 0 ]
 								+ ( this.state.Gender === "" ? "" : templates[ this.state.Language ][ this.state.Gender ] )
 								+ this.state.Name
-								+ templates[ this.state.Language ][ this.state.Strike ][ 1 ]
+								+ templates[ this.state.Language ][ this.props.Strike ][ 1 ]
 								+ this.state.Incident
-								+ templates[ this.state.Language ][ this.state.Strike ][ 2 ]
+								+ templates[ this.state.Language ][ this.props.Strike ][ 2 ]
 							}
 							cols="70"
 							rows="1"

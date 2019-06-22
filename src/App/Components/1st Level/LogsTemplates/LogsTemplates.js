@@ -33,7 +33,6 @@ class LogsTemplates extends React.Component {
 
 	state = {
 		Language: "French",
-		StrikeLog: "S1",
 		Voicemail: "",
 		Skype: "",
 		Email: "",
@@ -42,11 +41,21 @@ class LogsTemplates extends React.Component {
 	}
 
 	componentDidMount = () => {
-		document.querySelector( `.LogsTemplates .${ this.state.StrikeLog }` ).checked = true;
+		document.querySelector( `.LogsTemplates .${ this.props.Strike }` ).checked = true;
+	}
+
+	componentWillUpdate = () => {
+		document.querySelector( `.LogsTemplates .${ this.props.Strike }` ).checked = false;
+	}
+
+	componentDidUpdate = () => {
+		document.querySelector( `.LogsTemplates .${ this.props.Strike }` ).checked = true;
 	}
 
 	getRadio = ( e ) => {
-		//console.log( e );
+		//console.log( "Log radio change" )
+		if ( e.target.name === "StrikeLog" )
+			this.props.getStrike( e )
 		this.setState( { [ e.target.name ]: e.target.className } );
 	}
 
@@ -126,7 +135,7 @@ class LogsTemplates extends React.Component {
 					<div className={ this.state.copyAnimation } >
 						<textarea
 							value={
-								template.StrikeLog[ this.state.StrikeLog ]
+								template.StrikeLog[ this.props.Strike ]
 								+ ( this.state.Voicemail === "" ? "" : template.Voicemail[ this.state.Voicemail ] )
 								+ ( this.state.Skype === "" ? "" : template.Skype[ this.state.Skype ] )
 								+ ( this.state.Email === "" ? "" : template.Email[ this.state.Email ] )
