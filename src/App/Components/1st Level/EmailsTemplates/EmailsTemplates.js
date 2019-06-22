@@ -28,51 +28,17 @@ const templates = {
 
 class EmailsTemplates extends React.Component {
 
-	state = {
-		Language: "French",
-		Gender: "",
-		Name: "",
-		Incident: "",
-		text: "",
-		copyAnimation: "inactive"
-	}
-
 	componentDidMount = () => {
-		document.querySelector( `.EmailsTemplates .${ this.state.Language }` ).checked = true;
-		document.querySelector( `.EmailsTemplates .${ this.props.Strike }` ).checked = true;
+		document.querySelector( `.EmailsTemplates .${ this.props.textData.Language }` ).checked = true;
+		document.querySelector( `.EmailsTemplates .${ this.props.textData.Strike }` ).checked = true;
 	}
 
 	componentWillUpdate = () => {
-		document.querySelector( `.EmailsTemplates .${ this.props.Strike }` ).checked = false;
+		document.querySelector( `.EmailsTemplates .${ this.props.textData.Strike }` ).checked = false;
 	}
 
 	componentDidUpdate = () => {
-		document.querySelector( `.EmailsTemplates .${ this.props.Strike }` ).checked = true;
-	}
-
-	getRadio = ( e ) => {
-		//console.log( "Email radio change" )
-		if ( e.target.name === "Strike" )
-			this.props.getStrike( e )
-		this.setState( { [ e.target.name ]: e.target.className } )
-	}
-
-	getTextInput = ( e ) => {
-		if ( e.target.checkValidity() ) {
-			let value = (
-				e.target.id === "Name"
-					? " " + e.target.value.charAt( 0 ).toUpperCase() + e.target.value.slice( 1 )
-					: " " + e.target.value.toUpperCase()
-			);
-			value = (
-				value.charAt( value.lengasdth - 1 ) === " "
-					? value.slice( 0, value.length - 1 )
-					: value
-			);
-			this.setState( { [ e.target.id ]: value } )
-		}
-		else
-			this.setState( { [ e.target.id ]: "" } );
+		document.querySelector( `.EmailsTemplates .${ this.props.textData.Strike }` ).checked = true;
 	}
 
 	toggleCopyCmd = ( e ) => {
@@ -101,6 +67,8 @@ class EmailsTemplates extends React.Component {
 	}
 
 	render () {
+		const { Language, Strike, Gender, Name, Incident } = this.props.textData;
+
 		return (
 			<div className="EmailsTemplates">
 				<LeftSide content={ <>
@@ -108,25 +76,25 @@ class EmailsTemplates extends React.Component {
 						className="Language"
 						legend="Language"
 						IDs={ [ "English", "French" ] }
-						getRadio={ this.getRadio }
+						getRadio={ this.props.getRadio }
 					/>
 					<RadioSection
 						className="Strike"
 						legend="Strike"
 						IDs={ [ "Closure", "S1", "S2", "S3" ] }
-						getRadio={ this.getRadio }
+						getRadio={ this.props.getRadio }
 					/>
 					<RadioSection
 						className="Gender"
 						legend="Gender"
 						IDs={ [ "Male", "Female" ] }
-						getRadio={ this.getRadio }
+						getRadio={ this.props.getRadio }
 					/>
 					<TextFieldSection
 						className="Name"
 						legend="Name"
 						placeholder="Name here"
-						getTextInput={ this.getTextInput }
+						getTextInput={ this.props.getTextInput }
 					/>
 					<TextFieldSection
 						className="Incident"
@@ -134,26 +102,26 @@ class EmailsTemplates extends React.Component {
 						placeholder="INC0000000"
 						maxLength="10"
 						pattern="(inc|inC|iNC|INC|iNc|INc|Inc|InC)+[0-9]{7}"
-						getTextInput={ this.getTextInput }
+						getTextInput={ this.props.getTextInput }
 					/>
 					<CopySection
-						toggleCopyAnimation={ this.state.copyAnimation }
-						toggleCopyCmd={ this.toggleCopyCmd }
+						toggleCopyAnimation={ this.props.textData.copyAnimation }
+						toggleCopyCmd={ ( e ) => this.props.toggleCopyCmd( e, this.constructor.name ) }
 					/>
 					<ResetSection
 						handleReset={ this.props.handleReset }
 					/>
 				</> } />
 				<RightSide templateName="EmailsTemplates" content={ <>
-					<div className={ this.state.copyAnimation } >
+					<div className={ this.props.textData.copyAnimation } >
 						<textarea
 							value={
-								templates[ this.state.Language ][ this.props.Strike ][ 0 ]
-								+ ( this.state.Gender === "" ? "" : templates[ this.state.Language ][ this.state.Gender ] )
-								+ this.state.Name
-								+ templates[ this.state.Language ][ this.props.Strike ][ 1 ]
-								+ this.state.Incident
-								+ templates[ this.state.Language ][ this.props.Strike ][ 2 ]
+								templates[ Language ][ Strike ][ 0 ]
+								+ ( Gender === "" ? "" : templates[ Language ][ Gender ] )
+								+ Name
+								+ templates[ Language ][ Strike ][ 1 ]
+								+ Incident
+								+ templates[ Language ][ Strike ][ 2 ]
 							}
 							cols="70"
 							rows="1"

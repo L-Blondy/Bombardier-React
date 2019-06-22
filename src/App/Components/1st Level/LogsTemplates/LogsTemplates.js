@@ -31,44 +31,19 @@ const template = {
 
 class LogsTemplates extends React.Component {
 
-	state = {
-		Language: "French",
-		Voicemail: "",
-		Skype: "",
-		Email: "",
-		text: "",
-		copyAnimation: "inactive"
-	}
-
 	componentDidMount = () => {
-		document.querySelector( `.LogsTemplates .${ this.props.Strike }` ).checked = true;
+		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = true;
 	}
 
 	componentWillUpdate = () => {
-		document.querySelector( `.LogsTemplates .${ this.props.Strike }` ).checked = false;
+		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = false;
 	}
 
 	componentDidUpdate = () => {
-		document.querySelector( `.LogsTemplates .${ this.props.Strike }` ).checked = true;
+		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = true;
 	}
 
-	getRadio = ( e ) => {
-		//console.log( "Log radio change" )
-		if ( e.target.name === "StrikeLog" )
-			this.props.getStrike( e )
-		this.setState( { [ e.target.name ]: e.target.className } );
-	}
 
-	toggleCopyCmd = ( e ) => {
-		this.setState( { copyAnimation: "inactive" } )
-		setTimeout( () => this.setState( { copyAnimation: "active" } ), 17 )
-
-		const textarea = document.querySelector( ".LogsTemplates .RightSide textarea" );
-		textarea.select();
-		document.execCommand( 'copy' );
-		textarea.setSelectionRange( 0, 0 );
-		this.resetAfterCopy();
-	}
 
 	resetAfterCopy = () => {
 		setTimeout( () => {
@@ -87,6 +62,7 @@ class LogsTemplates extends React.Component {
 	}
 
 	render () {
+		const { Strike, Voicemail, Skype, Email } = this.props.textData;
 		return (
 			<div className="LogsTemplates">
 				<LeftSide content={
@@ -95,30 +71,30 @@ class LogsTemplates extends React.Component {
 							className="StrikeLog"
 							legend="Strike"
 							IDs={ [ "Closure", "S1", "S2", "S3" ] }
-							getRadio={ this.getRadio }
+							getRadio={ this.props.getRadio }
 						/>
 						<RadioSection
 							className="Voicemail"
 							legend="Voicemail"
 							IDs={ [ "None", "Yes", "No" ] }
-							getRadio={ this.getRadio }
+							getRadio={ this.props.getRadio }
 						/>
 						<RadioSection
 							className="Skype"
 							legend="Skype"
 							IDs={ [ "Yes", "No" ] }
-							getRadio={ this.getRadio }
+							getRadio={ this.props.getRadio }
 						/>
 						<RadioSection
 							className="Email"
 							legend="Email"
 							IDs={ [ "Yes", "No" ] }
-							getRadio={ this.getRadio }
+							getRadio={ this.props.getRadio }
 						/>
 						<div className="wrap">
 							<CopySection
-								toggleCopyAnimation={ this.state.copyAnimation }
-								toggleCopyCmd={ this.toggleCopyCmd }
+								toggleCopyAnimation={ this.props.textData.copyAnimation }
+								toggleCopyCmd={ ( e ) => this.props.toggleCopyCmd( e, this.constructor.name ) }
 							/>
 							<legend></legend>
 						</div>
@@ -132,13 +108,13 @@ class LogsTemplates extends React.Component {
 				} />
 
 				<RightSide templateName="LogsTemplates" content={ <>
-					<div className={ this.state.copyAnimation } >
+					<div className={ this.props.textData.copyAnimation } >
 						<textarea
 							value={
-								template.StrikeLog[ this.props.Strike ]
-								+ ( this.state.Voicemail === "" ? "" : template.Voicemail[ this.state.Voicemail ] )
-								+ ( this.state.Skype === "" ? "" : template.Skype[ this.state.Skype ] )
-								+ ( this.state.Email === "" ? "" : template.Email[ this.state.Email ] )
+								template.StrikeLog[ Strike ]
+								+ ( Voicemail === "" ? "" : template.Voicemail[ Voicemail ] )
+								+ ( Skype === "" ? "" : template.Skype[ Skype ] )
+								+ ( Email === "" ? "" : template.Email[ Email ] )
 							}
 							cols="70"
 							rows="1"
