@@ -28,7 +28,7 @@
 
 .Radio input:checked + label {
   position: relative;
-  background: #5fadb8;
+  background: #49a5b1;
   color: #e7f1f5;
   z-index: 1;
   -webkit-box-shadow: 0 0 0 1px #006e6e;

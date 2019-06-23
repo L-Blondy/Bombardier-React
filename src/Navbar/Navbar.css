@@ -1,8 +1,8 @@
 #root .Navbar {
   height: 50px;
   width: 100vw;
-  background: #203a50;
-  color: #ebf2f6;
+  background: #034050;
+  color: #e7f1f5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -71,12 +71,10 @@
   text-align: center;
   z-index: 2;
   opacity: 1;
-  right: 0px;
-  left: 0px;
   top: 50px;
   padding: 5px;
-  background: #5fadb8;
-  border: solid 1px teal;
+  background: #49a5b1;
+  border: solid 1px #006e6e;
   border-top: none;
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
@@ -92,7 +90,7 @@
 
 #root .open-dropdown .dropdown a {
   display: inline-block;
-  line-height: 30px;
+  line-height: 25px;
   padding: 0 5px;
   width: 100%;
   -webkit-transition: background-color 100ms;
