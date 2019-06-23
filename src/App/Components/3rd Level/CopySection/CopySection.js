@@ -4,7 +4,7 @@ import "./CopySection.css";
 class CopySection extends React.Component {
 
 	shouldComponentUpdate = ( nextProps ) => {
-		return this.props.toggleCopyAnimation != nextProps.toggleCopyAnimation;
+		return this.props.toggleCopyAnimation !== nextProps.toggleCopyAnimation;
 	}
 
 	render = () => {

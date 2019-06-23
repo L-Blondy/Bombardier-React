@@ -28,7 +28,7 @@ class App extends React.Component {
 					: " " + e.target.value.toUpperCase()
 			);
 			value = (
-				value.charAt( value.lengasdth - 1 ) === " "
+				value.charAt( value.length - 1 ) === " "
 					? value.slice( 0, value.length - 1 )
 					: value
 			);
