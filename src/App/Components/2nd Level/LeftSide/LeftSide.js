@@ -3,11 +3,9 @@ import "./LeftSide.css";
 
 class LeftSide extends React.Component {
 
-	shouldComponentUpdate = ( nextProps ) => {
-		return false;
-	}
+	shouldComponentUpdate = () => false;
 
-	render () {
+	render = () => {
 
 		return <div className="LeftSide">{ this.props.content }</div>;
 	}
