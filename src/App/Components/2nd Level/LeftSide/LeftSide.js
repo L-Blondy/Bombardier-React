@@ -1,9 +1,16 @@
 import React from "react";
 import "./LeftSide.css";
 
-function LeftSide ( { content } ) {
+class LeftSide extends React.Component {
 
-	return <div className="LeftSide">{ content }</div>;
+	shouldComponentUpdate = ( nextProps ) => {
+		return false;
+	}
+
+	render () {
+
+		return <div className="LeftSide">{ this.props.content }</div>;
+	}
 }
 
 export default LeftSide;

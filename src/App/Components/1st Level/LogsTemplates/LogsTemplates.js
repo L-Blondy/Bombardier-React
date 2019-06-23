@@ -45,11 +45,11 @@ class LogsTemplates extends React.Component {
 		const { Strike, Voicemail, Skype, Email, copyLogsTemplates } = this.props.textData;
 
 		return (
-			Strike != nextP.Strike
-			|| Voicemail != nextP.Voicemail
-			|| Skype != nextP.Skype
-			|| Email != nextP.Email
-			|| copyLogsTemplates != nextP.copyLogsTemplates
+			Strike !== nextP.Strike
+			|| Voicemail !== nextP.Voicemail
+			|| Skype !== nextP.Skype
+			|| Email !== nextP.Email
+			|| copyLogsTemplates !== nextP.copyLogsTemplates
 		);
 	}
 

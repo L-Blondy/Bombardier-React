@@ -2,35 +2,32 @@ import React from "react";
 import Radio from "./RadioButton/Radio.js";
 import "./RadioSection.css";
 
-function RadioSection ( { getRadio, className, IDs, legend } ) {
+class RadioSection extends React.Component {
 
-	/*
-	 * className = radio input Name
-	 * IDs = define each button content
-	 * 
-	 * NOTE : small chance of duplicate id for input elements if 2 or more radio sections have the same "className + IDs"
-	*/
+	render = () => {
 
-	const radioButtons = IDs.map( ID => {
+		const { getRadio, className, IDs, legend } = this.props;
+
+		const radioButtons = IDs.map( ID => {
+			return (
+
+				<Radio
+					content={ ID }
+					name={ className }
+					id={ ID + Math.random() }
+					getRadio={ getRadio }
+					key={ className + ID }
+				/>
+			)
+		} )
+
 		return (
-
-			<Radio
-				content={ ID }
-				name={ className }
-				id={ ID + Math.random() }
-				getRadio={ getRadio }
-				key={ className + ID }
-			/>
+			<div className={ "RadioSection " + className }>
+				{ radioButtons }
+				<legend>{ legend }</legend>
+			</div>
 		)
-	} )
-
-	return (
-		<div className={ "RadioSection " + className }>
-			{ radioButtons }
-			<legend>{ legend }</legend>
-		</div>
-
-	)
+	}
 }
 
 export default RadioSection;

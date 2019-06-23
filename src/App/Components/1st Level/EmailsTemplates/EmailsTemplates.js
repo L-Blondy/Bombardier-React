@@ -46,12 +46,12 @@ class EmailsTemplates extends React.Component {
 		const { Gender, Language, Name, Incident, Strike, copyEmailsTemplates } = this.props.textData;
 
 		return (
-			Gender != nextP.Gender
-			|| Language != nextP.Language
-			|| Name != nextP.Name
-			|| Incident != nextP.Incident
-			|| Strike != nextP.Strike
-			|| copyEmailsTemplates != nextP.copyEmailsTemplates
+			Gender !== nextP.Gender
+			|| Language !== nextP.Language
+			|| Name !== nextP.Name
+			|| Incident !== nextP.Incident
+			|| Strike !== nextP.Strike
+			|| copyEmailsTemplates !== nextP.copyEmailsTemplates
 		);
 	}
 
