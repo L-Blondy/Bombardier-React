@@ -40,6 +40,19 @@ class LogsTemplates extends React.Component {
 		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = true;
 	}
 
+	shouldComponentUpdate = ( nextProps, nextState ) => {
+		const nextP = nextProps.textData;
+		const { Strike, Voicemail, Skype, Email, copyLogsTemplates } = this.props.textData;
+
+		return (
+			Strike != nextP.Strike
+			|| Voicemail != nextP.Voicemail
+			|| Skype != nextP.Skype
+			|| Email != nextP.Email
+			|| copyLogsTemplates != nextP.copyLogsTemplates
+		);
+	}
+
 	render = () => {
 		const { Strike, Voicemail, Skype, Email } = this.props.textData;
 		return (
@@ -95,7 +108,7 @@ class LogsTemplates extends React.Component {
 								+ ( Skype === "" ? "" : template.Skype[ Skype ] )
 								+ ( Email === "" ? "" : template.Email[ Email ] )
 							}
-							cols="70"
+							cols="80"
 							rows="1"
 							readOnly
 						/>

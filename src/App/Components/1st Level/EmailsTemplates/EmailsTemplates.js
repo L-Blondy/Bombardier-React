@@ -41,6 +41,20 @@ class EmailsTemplates extends React.Component {
 		document.querySelector( `.EmailsTemplates .${ this.props.textData.Strike }` ).checked = true;
 	}
 
+	shouldComponentUpdate = ( nextProps, nextState ) => {
+		const nextP = nextProps.textData;
+		const { Gender, Language, Name, Incident, Strike, copyEmailsTemplates } = this.props.textData;
+
+		return (
+			Gender != nextP.Gender
+			|| Language != nextP.Language
+			|| Name != nextP.Name
+			|| Incident != nextP.Incident
+			|| Strike != nextP.Strike
+			|| copyEmailsTemplates != nextP.copyEmailsTemplates
+		);
+	}
+
 	render = () => {
 		const { Language, Strike, Gender, Name, Incident } = this.props.textData;
 
@@ -98,7 +112,7 @@ class EmailsTemplates extends React.Component {
 								+ Incident
 								+ templates[ Language ][ Strike ][ 2 ]
 							}
-							cols="70"
+							cols="80"
 							rows="1"
 							readOnly
 						/>

@@ -36,7 +36,6 @@ class Navbar extends React.Component {
 class Navlink extends React.Component {
 
 	renderLinks = () => {
-		console.log( this.props.title )
 		const links = this.props.links.map( ( link, index ) => ( <NavLink to={ `${ this.props.title }-${ link }` } key={ index }>{ link }</NavLink> ) )
 		return <div className="dropdown">{ links }</div>
 	}
