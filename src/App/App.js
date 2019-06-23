@@ -12,8 +12,7 @@ class App extends React.Component {
 		Incident: "",
 		Voicemail: "",
 		Skype: "",
-		Email: "",
-		copyAnimation: "inactive"
+		Email: ""
 	}
 
 	getRadio = ( e ) => {
@@ -40,14 +39,14 @@ class App extends React.Component {
 	}
 
 	toggleCopyCmd = ( e, templateName ) => {
-		this.setState( { copyAnimation: "inactive" } )
-		setTimeout( () => this.setState( { copyAnimation: "active" } ), 17 )
+		this.setState( { [ `copy${ templateName }` ]: "inactive" } )
+		setTimeout( () => this.setState( { [ `copy${ templateName }` ]: "active" } ), 17 )
 
 		const textarea = document.querySelector( `.${ templateName } .RightSide textarea` );
 		textarea.select();
 		document.execCommand( 'copy' );
 		textarea.setSelectionRange( 0, 0 );
-		setTimeout( () => this.handleReset(), 1200 );
+		setTimeout( () => this.handleReset(), 700 );
 	}
 
 	handleReset = () => {
@@ -65,8 +64,7 @@ class App extends React.Component {
 			Incident: "",
 			Voicemail: "",
 			Skype: "",
-			Email: "",
-			copyAnimation: "inactive"
+			Email: ""
 		} )
 	}
 
@@ -74,7 +72,6 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				<EmailsTemplates
-
 					handleReset={ this.handleReset }
 					getStrike={ this.getStrike }
 					getRadio={ this.getRadio }

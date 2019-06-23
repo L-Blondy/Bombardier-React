@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import RadioSection from "../../3rd Level/RadioSection/RadioSection";
 import ResetSection from "../../3rd Level/ResetSection/ResetSection";
 import CopySection from "../../3rd Level/CopySection/CopySection";
@@ -26,7 +26,6 @@ const template = {
 		Yes: "\nEmail sent.",
 		No: "\nNo Email found."
 	}
-
 }
 
 class LogsTemplates extends React.Component {
@@ -34,39 +33,19 @@ class LogsTemplates extends React.Component {
 	componentDidMount = () => {
 		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = true;
 	}
-
 	componentWillUpdate = () => {
 		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = false;
 	}
-
 	componentDidUpdate = () => {
 		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = true;
 	}
 
-
-
-	resetAfterCopy = () => {
-		setTimeout( () => {
-			if ( this.state.Voicemail !== "" )
-				document.querySelector( `.LogsTemplates .Voicemail .${ this.state.Voicemail }` ).checked = false;
-			if ( this.state.Skype !== "" )
-				document.querySelector( `.LogsTemplates .Skype .${ this.state.Skype }` ).checked = false;
-			if ( this.state.Email !== "" )
-				document.querySelector( `.LogsTemplates .Email .${ this.state.Email }` ).checked = false;
-			this.setState( {
-				Voicemail: "",
-				Skype: "",
-				Email: "",
-			} )
-		}, 1000 )
-	}
-
-	render () {
+	render = () => {
 		const { Strike, Voicemail, Skype, Email } = this.props.textData;
 		return (
 			<div className="LogsTemplates">
 				<LeftSide content={
-					<Fragment>
+					<>
 						<RadioSection
 							className="StrikeLog"
 							legend="Strike"
@@ -93,7 +72,7 @@ class LogsTemplates extends React.Component {
 						/>
 						<div className="wrap">
 							<CopySection
-								toggleCopyAnimation={ this.props.textData.copyAnimation }
+								toggleCopyAnimation={ this.props.textData.copyLogsTemplates }
 								toggleCopyCmd={ ( e ) => this.props.toggleCopyCmd( e, this.constructor.name ) }
 							/>
 							<legend></legend>
@@ -104,11 +83,11 @@ class LogsTemplates extends React.Component {
 							/>
 							<legend></legend>
 						</div>
-					</Fragment>
+					</>
 				} />
 
 				<RightSide templateName="LogsTemplates" content={ <>
-					<div className={ this.props.textData.copyAnimation } >
+					<div className={ this.props.textData.copyLogsTemplates } >
 						<textarea
 							value={
 								template.StrikeLog[ Strike ]

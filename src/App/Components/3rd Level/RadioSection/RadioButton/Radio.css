@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 .Radio input {
   display: none;
 }
@@ -9,8 +8,8 @@
   display: flex;
   border: none;
   width: 85px;
-  -webkit-box-shadow: 0 0 0 1px #a8c8ce;
-          box-shadow: 0 0 0 1px #a8c8ce;
+  -webkit-box-shadow: 0 0 0 1px #6b989e;
+          box-shadow: 0 0 0 1px #6b989e;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -20,7 +19,7 @@
   background: #f1f7f8;
   border-radius: 1px;
   height: 23px;
-  color: #195e79;
+  color: #326679;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -29,10 +28,10 @@
 
 .Radio input:checked + label {
   position: relative;
-  background: #55bcca;
-  color: #fafaf5;
+  background: #5fadb8;
+  color: #e7f1f5;
   z-index: 1;
-  -webkit-box-shadow: 0 0 0 1px teal;
-          box-shadow: 0 0 0 1px teal;
+  -webkit-box-shadow: 0 0 0 1px #006e6e;
+          box-shadow: 0 0 0 1px #006e6e;
 }
 /*# sourceMappingURL=Radio.css.map */

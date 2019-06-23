@@ -41,32 +41,7 @@ class EmailsTemplates extends React.Component {
 		document.querySelector( `.EmailsTemplates .${ this.props.textData.Strike }` ).checked = true;
 	}
 
-	toggleCopyCmd = ( e ) => {
-		this.setState( { copyAnimation: "inactive" } )
-		setTimeout( () => this.setState( { copyAnimation: "active" } ), 17 )
-
-		const textarea = document.querySelector( ".RightSide textarea" );
-		textarea.select();
-		document.execCommand( 'copy' );
-		textarea.setSelectionRange( 0, 0 );
-		this.resetAfterCopy();
-	}
-
-	resetAfterCopy = () => {
-		setTimeout( () => {
-			if ( this.state.Gender !== "" )
-				document.querySelector( `.EmailsTemplates .${ this.state.Gender }` ).checked = false;
-			document.querySelector( `.EmailsTemplates #Name` ).value = "";
-			document.querySelector( `.EmailsTemplates #Incident` ).value = "";
-			this.setState( {
-				Gender: "",
-				Name: "",
-				Incident: ""
-			} )
-		}, 1000 )
-	}
-
-	render () {
+	render = () => {
 		const { Language, Strike, Gender, Name, Incident } = this.props.textData;
 
 		return (
@@ -93,7 +68,7 @@ class EmailsTemplates extends React.Component {
 					<TextFieldSection
 						className="Name"
 						legend="Name"
-						placeholder="Name here"
+						placeholder="Name"
 						getTextInput={ this.props.getTextInput }
 					/>
 					<TextFieldSection
@@ -105,7 +80,7 @@ class EmailsTemplates extends React.Component {
 						getTextInput={ this.props.getTextInput }
 					/>
 					<CopySection
-						toggleCopyAnimation={ this.props.textData.copyAnimation }
+						toggleCopyAnimation={ this.props.textData.copyEmailsTemplates }
 						toggleCopyCmd={ ( e ) => this.props.toggleCopyCmd( e, this.constructor.name ) }
 					/>
 					<ResetSection
@@ -113,7 +88,7 @@ class EmailsTemplates extends React.Component {
 					/>
 				</> } />
 				<RightSide templateName="EmailsTemplates" content={ <>
-					<div className={ this.props.textData.copyAnimation } >
+					<div className={ this.props.textData.copyEmailsTemplates } >
 						<textarea
 							value={
 								templates[ Language ][ Strike ][ 0 ]

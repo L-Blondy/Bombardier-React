@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 .TextFieldSection {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,13 +8,12 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.93rem;
-  letter-spacing: 1.5px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
 
 .TextFieldSection legend {
-  font-family: "Source Sans Pro", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,19 +25,23 @@
           align-items: center;
   width: 80px;
   margin-left: 15px;
-  font-size: 0.85rem;
-  color: #555;
+  font-size: 0.72rem;
+  color: #667074;
   font-style: italic;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .TextFieldSection input {
   border: none;
-  -webkit-box-shadow: 0 0 0 1px #a8c8ce;
-          box-shadow: 0 0 0 1px #a8c8ce;
+  -webkit-box-shadow: 0 0 0 1px #6b989e;
+          box-shadow: 0 0 0 1px #6b989e;
   border-radius: 2px;
   padding: 0 10px;
   height: 23px;
-  width: 135px;
+  width: 120px;
 }
 
 .TextFieldSection input:focus {
@@ -49,5 +51,21 @@
 .TextFieldSection input:valid {
   -webkit-box-shadow: 0 0 1px 1px #74e974;
           box-shadow: 0 0 1px 1px #74e974;
+}
+
+.TextFieldSection input::-webkit-input-placeholder {
+  font-size: 0.76rem;
+}
+
+.TextFieldSection input:-ms-input-placeholder {
+  font-size: 0.76rem;
+}
+
+.TextFieldSection input::-ms-input-placeholder {
+  font-size: 0.76rem;
+}
+
+.TextFieldSection input::placeholder {
+  font-size: 0.76rem;
 }
 /*# sourceMappingURL=TextFieldSection.css.map */

@@ -1,0 +1,125 @@
+$navbar-background: #203a50;
+$navbar-font-color: #ebf2f6;
+$navlinks-margin: 10px;
+$dropdown-background: rgb(95, 173, 184);
+$dropdown-border-clr: teal;
+$font-fam: 'Orbitron',
+sans-serif;
+
+#root {
+    .Navbar {
+        height: 50px;
+        width: 100vw;
+        background: $navbar-background;
+        color: $navbar-font-color;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 6vw 0 12vw;
+
+
+        .links-ul,
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 10px;
+            font-style: italic;
+            user-select: none;
+        }
+    }
+
+    .open-dropdown {
+        position: relative;
+        list-style: none;
+        margin: 0 $navlinks-margin;
+        padding: 0 $navlinks-margin;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        min-width: 150px;
+        justify-content: center;
+        cursor: pointer;
+
+        h3 {
+            font-weight: 100;
+            letter-spacing: 3px;
+            font-size: 1.2rem;
+            font-family: $font-fam;
+            font-weight: 400;
+            //font-style: italic;
+            font-variant: small-caps;
+            user-select: none;
+        }
+
+        .dropdown {
+            position: absolute;
+            text-align: center;
+            z-index: 2;
+            opacity: 1;
+            right: 0px;
+            left: 0px;
+            top: 50px;
+            padding: 5px;
+            background: $dropdown-background;
+            border: solid 1px $dropdown-border-clr;
+            border-top: none;
+            transform: scaleY(0);
+            transition: transform 150ms 50ms ease-in;
+            transform-origin: top;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+
+            a {
+                display: inline-block;
+                line-height: 30px;
+                padding: 0 5px;
+                width: 100%;
+                transition: background-color 100ms;
+                font-size: 1rem;
+                border-radius: 2px;
+                color: rgb(250, 250, 245);
+                text-decoration: none;
+                letter-spacing: 1.5px;
+                font-family: 'Electrolize', sans-serif;
+                font-weight: 200;
+                font-size: 0.9rem;
+
+                &:hover {
+                    background: #1f7d9c;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &:hover div {
+            transform: scaleY(1);
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 3px;
+            transform: scaleX(0);
+            opacity: 1;
+            background: currentColor;
+            right: 0;
+            bottom: 0;
+            transition: transform 250ms 50ms cubic-bezier(0, 1.15, 1, 1);
+            box-shadow: 0 0px 5px 0px white;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        &:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom;
+            left: 0;
+        }
+    }
+}
