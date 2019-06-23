@@ -4,6 +4,7 @@ import ResetSection from "../../3rd Level/ResetSection/ResetSection";
 import CopySection from "../../3rd Level/CopySection/CopySection";
 import LeftSide from "../../2nd Level/LeftSide/LeftSide";
 import RightSide from "../../2nd Level/RightSide/RightSide";
+import TemplatesHOC from "../../../HOC/TemplatesHOC";
 import "./LogsTemplates.css";
 
 const template = {
@@ -30,17 +31,7 @@ const template = {
 
 class LogsTemplates extends React.Component {
 
-	componentDidMount = () => {
-		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = true;
-	}
-	componentWillUpdate = () => {
-		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = false;
-	}
-	componentDidUpdate = () => {
-		document.querySelector( `.LogsTemplates .${ this.props.textData.Strike }` ).checked = true;
-	}
-
-	shouldComponentUpdate = ( nextProps, nextState ) => {
+	static shouldComponentUpdate ( nextProps, nextState ) {
 		const nextP = nextProps.textData;
 		const { Strike, Voicemail, Skype, Email, copyLogsTemplates } = this.props.textData;
 
@@ -119,4 +110,4 @@ class LogsTemplates extends React.Component {
 	}
 }
 
-export default LogsTemplates;
+export default TemplatesHOC( LogsTemplates, LogsTemplates.shouldComponentUpdate );

@@ -5,6 +5,7 @@ import RadioSection from "../../3rd Level/RadioSection/RadioSection";
 import CopySection from "../../3rd Level/CopySection/CopySection";
 import ResetSection from "../../3rd Level/ResetSection/ResetSection";
 import TextFieldSection from "../../3rd Level/TextFieldSection/TextFieldSection";
+import TemplatesHOC from "../../../HOC/TemplatesHOC";
 import "./EmailsTemplates.css";
 
 const templates = {
@@ -28,20 +29,8 @@ const templates = {
 
 class EmailsTemplates extends React.Component {
 
-	componentDidMount = () => {
-		document.querySelector( `.EmailsTemplates .${ this.props.textData.Language }` ).checked = true;
-		document.querySelector( `.EmailsTemplates .${ this.props.textData.Strike }` ).checked = true;
-	}
+	static shouldComponentUpdate ( nextProps, nextState ) {
 
-	componentWillUpdate = () => {
-		document.querySelector( `.EmailsTemplates .${ this.props.textData.Strike }` ).checked = false;
-	}
-
-	componentDidUpdate = () => {
-		document.querySelector( `.EmailsTemplates .${ this.props.textData.Strike }` ).checked = true;
-	}
-
-	shouldComponentUpdate = ( nextProps, nextState ) => {
 		const nextP = nextProps.textData;
 		const { Gender, Language, Name, Incident, Strike, copyEmailsTemplates } = this.props.textData;
 
@@ -123,4 +112,4 @@ class EmailsTemplates extends React.Component {
 	}
 }
 
-export default EmailsTemplates;
+export default TemplatesHOC( EmailsTemplates, EmailsTemplates.shouldComponentUpdate );
