@@ -30,7 +30,7 @@ class App extends React.Component {
 			value = (
 				value.charAt( value.length - 1 ) === " "
 					? value.slice( 0, value.length - 1 )
-					: value
+					: value;
 			);
 			this.setState( { [ e.target.id ]: value } )
 		}
