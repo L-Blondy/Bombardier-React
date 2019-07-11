@@ -12,15 +12,16 @@ function Root () {
 	return (
 		<BrowserRouter>
 			<Navbar />
-			<Switch>
+			<App />
+			{/* <Switch>
 				<Route path="/" component={ App } exact />
 				<Route path="/Templates-3 Strikes" component={ App } exact />
 				<Route path="/Templates-Dimension Data" component={ App } exact />
 				<Route path="/Utenze-Aerospace" component={ App } exact />
 				<Route path="/Utenze-Transportation" component={ App } exact />
-				<Route path="/Solutions-All solutions" component={ Navbar } exact />
+				<Route path="/Solutions-All solutions" component={ App } exact />
 				<Route path="/Drives-Aerospace" component={ App } exact />
-			</Switch>
+			</Switch> */}
 		</BrowserRouter>
 	)
 }
