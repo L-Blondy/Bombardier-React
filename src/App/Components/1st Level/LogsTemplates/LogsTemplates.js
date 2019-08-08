@@ -31,6 +31,8 @@ const template = {
 
 class LogsTemplates extends React.Component {
 
+	static Name = "LogsTemplates";
+
 	static shouldComponentUpdate ( nextProps, nextState ) {
 		const nextP = nextProps.textData;
 		const { Strike, Voicemail, Skype, Email, copyLogsTemplates } = this.props.textData;

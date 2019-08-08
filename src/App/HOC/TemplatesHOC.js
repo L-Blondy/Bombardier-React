@@ -7,17 +7,17 @@ function TemplatesHOC ( TemplateComponent, testArg ) {
 		shouldComponentUpdate = testArg;
 
 		componentDidMount = () => {
-			if ( document.querySelector( `.${ TemplateComponent.name } .${ this.props.textData.Language }` ) )
-				document.querySelector( `.${ TemplateComponent.name } .${ this.props.textData.Language }` ).checked = true
-			document.querySelector( `.${ TemplateComponent.name } .${ this.props.textData.Strike }` ).checked = true;
+			if ( document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Language }` ) )
+				document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Language }` ).checked = true
+			document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Strike }` ).checked = true;
 		}
 
 		componentWillUpdate = () => {
-			document.querySelector( `.${ TemplateComponent.name } .${ this.props.textData.Strike }` ).checked = false;
+			document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Strike }` ).checked = false;
 		}
 
 		componentDidUpdate = () => {
-			document.querySelector( `.${ TemplateComponent.name } .${ this.props.textData.Strike }` ).checked = true;
+			document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Strike }` ).checked = true;
 		}
 
 		render () {

@@ -29,6 +29,8 @@ const templates = {
 
 class EmailsTemplates extends React.Component {
 
+	static Name = "EmailsTemplates";
+
 	static shouldComponentUpdate ( nextProps, nextState ) {
 
 		const nextP = nextProps.textData;
