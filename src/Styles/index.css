@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Cairo|Audiowide&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Aldrich|Open+Sans&display=swap");
+/*************************
+ *                    MIXIN
+ *************************/
+/*************************
+ *                   GLOBAL
+ *************************/
 * {
   padding: 0;
   margin: 0;
@@ -33,7 +39,7 @@
  *                   NAVBAR
 ***************************/
 .Navbar {
-  height: 50px;
+  height: 6vh;
   width: 100vw;
   background: #034050;
   color: #e7f1f5;
@@ -59,8 +65,8 @@
 .Navbar .logo {
   font-family: "Audiowide";
   font-weight: 500;
-  font-size: 1.8rem;
-  letter-spacing: 5px;
+  font-size: 3.5vh;
+  letter-spacing: 0.7vh;
   font-style: italic;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -90,7 +96,7 @@
 .open-dropdown h3 {
   font-weight: 100;
   letter-spacing: 2px;
-  font-size: 1.2rem;
+  font-size: 2.3vh;
   font-family: "Audiowide";
   font-weight: 400;
   font-variant: small-caps;
@@ -130,13 +136,12 @@
   width: 100%;
   -webkit-transition: background-color 100ms;
   transition: background-color 100ms;
-  font-size: 1rem;
   border-radius: 2px;
   color: #fafaf5;
   text-decoration: none;
   letter-spacing: 1.5px;
   font-family: "Cairo";
-  font-size: 0.9rem;
+  font-size: 1.6vh;
 }
 
 .open-dropdown .dropdown a:hover {
@@ -184,18 +189,11 @@
 /*
  * 1st LVL
  */
-.EmailsTemplates {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 240px;
-}
-
+.EmailsTemplates,
 .LogsTemplates {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 210px;
 }
 
 /*
@@ -265,8 +263,8 @@
   resize: none;
   border: none;
   background: none;
-  font-size: 0.86rem;
-  line-height: 1.25rem;
+  font-size: 1.7vh;
+  line-height: 2.5vh;
   letter-spacing: 0.7px;
   color: #2b4c5f;
   font-family: "Cairo";
@@ -291,7 +289,7 @@
           justify-content: flex-end;
 }
 
-@-webkit-keyframes copyBtn-effect {
+@-webkit-keyframes copyBtnEffect {
   0% {
     -webkit-transform-origin: left;
             transform-origin: left;
@@ -320,7 +318,7 @@
   }
 }
 
-@keyframes copyBtn-effect {
+@keyframes copyBtnEffect {
   0% {
     -webkit-transform-origin: left;
             transform-origin: left;
@@ -373,7 +371,7 @@
 
 .CopySection button {
   position: relative;
-  font-size: 0.78rem;
+  font-size: 1.5vh;
   font-weight: 500;
   letter-spacing: 2px;
   display: -webkit-box;
@@ -391,7 +389,7 @@
           justify-content: center;
   background: #f1f7f8;
   border-radius: 1px;
-  height: 23px;
+  height: 2.5vh;
   color: #326679;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -416,8 +414,8 @@
   -webkit-transform-origin: left;
           transform-origin: left;
   opacity: 0.9;
-  -webkit-animation: copyBtn-effect 800ms linear;
-          animation: copyBtn-effect 800ms linear;
+  -webkit-animation: copyBtnEffect 800ms linear;
+          animation: copyBtnEffect 800ms linear;
   background: #319caa;
 }
 
@@ -431,7 +429,7 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  font-size: 0.78rem;
+  font-size: 1.5vh;
   font-weight: 500;
   letter-spacing: 2px;
   font-weight: 500;
@@ -479,7 +477,7 @@
           justify-content: center;
   background: #f1f7f8;
   border-radius: 1px;
-  height: 23px;
+  height: 2.5vh;
   color: #326679;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -533,7 +531,7 @@
 .ResetSection input {
   font-size: 0.6rem;
   letter-spacing: 1px;
-  height: 23px;
+  height: 2.5vh;
   padding: 0 6px;
   color: #888;
   background: white;
@@ -552,7 +550,7 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  font-size: 0.78rem;
+  font-size: 1.5vh;
   font-weight: 500;
   letter-spacing: 2px;
 }
@@ -585,7 +583,7 @@
           box-shadow: 0 0 0 1px #6b989e;
   border-radius: 2px;
   padding: 0 10px;
-  height: 23px;
+  height: 2.5vh;
   width: 120px;
   font-family: "Aldrich";
 }
