@@ -1,5 +1,4 @@
 import React from "react";
-import "./ResetSection.css";
 
 function ResetSection ( { handleReset, className } ) {
 

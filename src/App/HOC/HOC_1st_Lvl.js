@@ -1,8 +1,8 @@
 import React from "react";
 
-function TemplatesHOC ( TemplateComponent, testArg ) {
+function HOC_1st_Lvl ( TemplateComponent, testArg ) {
 
-	return class TemplatesHOC extends React.Component {
+	return class HOC_1st_Lvl extends React.Component {
 
 		shouldComponentUpdate = testArg;
 
@@ -29,4 +29,4 @@ function TemplatesHOC ( TemplateComponent, testArg ) {
 	}
 }
 
-export default TemplatesHOC;
+export default HOC_1st_Lvl;

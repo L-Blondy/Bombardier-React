@@ -1,11 +1,10 @@
 import React from "react";
-import RadioSection from "../../3rd Level/RadioSection/RadioSection";
-import ResetSection from "../../3rd Level/ResetSection/ResetSection";
-import CopySection from "../../3rd Level/CopySection/CopySection";
-import LeftSide from "../../2nd Level/LeftSide/LeftSide";
-import RightSide from "../../2nd Level/RightSide/RightSide";
-import TemplatesHOC from "../../../HOC/TemplatesHOC";
-import "./LogsTemplates.css";
+import RadioSection from "../3rd Level/RadioSection";
+import ResetSection from "../3rd Level/ResetSection";
+import CopySection from "../3rd Level/CopySection";
+import LeftSide from "../2nd Level/LeftSide";
+import RightSide from "../2nd Level/RightSide";
+import HOC_1st_Lvl from "../../HOC/HOC_1st_Lvl";
 
 const template = {
 	StrikeLog: {
@@ -112,4 +111,4 @@ class LogsTemplates extends React.Component {
 	}
 }
 
-export default TemplatesHOC( LogsTemplates, LogsTemplates.shouldComponentUpdate );
+export default HOC_1st_Lvl( LogsTemplates, LogsTemplates.shouldComponentUpdate );

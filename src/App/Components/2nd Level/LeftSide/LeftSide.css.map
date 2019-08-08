@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,SAAS,CAAC;EACJ,aAAa,EAAE,IAAI;EACnB,YAAY,EAAE,IAAI;EAClB,YAAY,EAAE,MAAM,CAAC,GAAG,CAAC,OAAkB;CAChD",
-    "sources": [
-        "LeftSide.scss"
-    ],
-    "names": [],
-    "file": "LeftSide.css"
-}

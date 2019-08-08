@@ -1,12 +1,11 @@
 import React from "react";
-import LeftSide from "../../2nd Level/LeftSide/LeftSide";
-import RightSide from "../../2nd Level/RightSide/RightSide";
-import RadioSection from "../../3rd Level/RadioSection/RadioSection";
-import CopySection from "../../3rd Level/CopySection/CopySection";
-import ResetSection from "../../3rd Level/ResetSection/ResetSection";
-import TextFieldSection from "../../3rd Level/TextFieldSection/TextFieldSection";
-import TemplatesHOC from "../../../HOC/TemplatesHOC";
-import "./EmailsTemplates.css";
+import LeftSide from "../2nd Level/LeftSide";
+import RightSide from "../2nd Level/RightSide";
+import RadioSection from "../3rd Level/RadioSection";
+import CopySection from "../3rd Level/CopySection";
+import ResetSection from "../3rd Level/ResetSection";
+import TextFieldSection from "../3rd Level/TextFieldSection";
+import HOC_1st_Lvl from "../../HOC/HOC_1st_Lvl";
 
 const templates = {
 	French: {
@@ -114,4 +113,4 @@ class EmailsTemplates extends React.Component {
 	}
 }
 
-export default TemplatesHOC( EmailsTemplates, EmailsTemplates.shouldComponentUpdate );
+export default HOC_1st_Lvl( EmailsTemplates, EmailsTemplates.shouldComponentUpdate );

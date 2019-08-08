@@ -1,5 +1,4 @@
 import React from "react";
-import "./LeftSide.css";
 
 class LeftSide extends React.Component {
 

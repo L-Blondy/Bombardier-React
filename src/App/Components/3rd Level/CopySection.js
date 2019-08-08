@@ -1,5 +1,4 @@
 import React from "react";
-import "./CopySection.css";
 
 class CopySection extends React.Component {
 

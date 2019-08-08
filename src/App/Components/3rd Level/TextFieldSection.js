@@ -1,9 +1,6 @@
 import React from "react";
-import "./TextFieldSection.css";
 
 function TextFieldSection ( { getTextInput, className, placeholder, pattern, maxLength, legend } ) {
-
-
 
 	return (
 		<div className={ "TextFieldSection " + className }>

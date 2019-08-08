@@ -1,6 +1,6 @@
 import React from 'react';
-import EmailsTemplates from "./Components/1st Level/EmailsTemplates/EmailsTemplates";
-import LogsTemplates from "./Components/1st Level/LogsTemplates/LogsTemplates";
+import EmailsTemplates from "./Components/1st Level/EmailsTemplates";
+import LogsTemplates from "./Components/1st Level/LogsTemplates";
 
 class App extends React.Component {
 

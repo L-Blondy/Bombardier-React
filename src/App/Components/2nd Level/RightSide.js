@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./RightSide.css";
 
 function RightSide ( { content, templateName } ) {
 

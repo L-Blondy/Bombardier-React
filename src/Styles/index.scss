@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo|Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Aldrich|Open+Sans&display=swap');
+
+@import "./variables/variables.scss";
+@import "./mixin/mixin.scss";
+
+$navbar-background: #034050;
+$navlinks-margin: 10px;
+$font-fam1:'Aldrich';
+$font-fam2: 'Audiowide';
+$font-fam3:'Cairo';
+
+* {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+
+.App {
+     height: calc(100vh - 50px);
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+     align-items: center;
+     padding-bottom: 7vh;
+}
+
+.App div[class*="Section"] {
+     padding: 6px 0;
+}
+
+/***************************
+ *                   NAVBAR
+***************************/
+
+.Navbar {
+     height: 50px;
+     width: 100vw;
+     background: $navbar-background;
+     color: $checked-button-font-clr;
+     display: flex;
+     justify-content: space-between;
+     padding: 0 6vw 0 8vw;
+
+
+     .links-ul,
+     .logo {
+          display: flex;
+          align-items: center;
+     }
+
+     .logo {
+          font-family: $font-fam2;
+          font-weight: 500;
+          font-size: 1.8rem;
+          letter-spacing: 5px;
+          font-style: italic;
+          user-select: none;
+     }
+}
+
+.open-dropdown {
+     position: relative;
+     list-style: none;
+     margin: 0 $navlinks-margin;
+     padding: 0 $navlinks-margin;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     min-width: 150px;
+     justify-content: center;
+     cursor: pointer;
+
+     h3 {
+          font-weight: 100;
+          letter-spacing: 2px;
+          font-size: 1.2rem;
+          font-family: $font-fam2;
+          font-weight: 400;
+          font-variant: small-caps;
+          font-style: italic;
+          user-select: none;
+     }
+
+     .dropdown {
+          position: absolute;
+          text-align: center;
+          z-index: 2;
+          opacity: 1;
+          top: 50px;
+          padding: 5px;
+          background: $checked-button-bkg;
+          border: solid 1px $checked-button-border-clr;
+          border-top: none;
+          transform: scaleY(0);
+          transition: transform 150ms 50ms ease-in;
+          transform-origin: top;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+
+          a {
+               display: inline-block;
+               line-height: 25px;
+               padding: 0 5px;
+               width: 100%;
+               transition: background-color 100ms;
+               font-size: 1rem;
+               border-radius: 2px;
+               color: rgb(250, 250, 245);
+               text-decoration: none;
+               letter-spacing: 1.5px;
+               font-family: $font-fam3;
+               font-size: 0.9rem;
+
+               &:hover {
+                    background: #1f7d9c;
+                    cursor: pointer;
+               }
+          }
+
+          &::before {
+               position: absolute;
+               content: "";
+               width: 100%;
+               height: 3px;
+               transform: scaleX(0);
+               opacity: 1;
+               background: currentColor;
+               right: 0;
+               top: -3px;
+               transition: transform 250ms 50ms cubic-bezier(0, 1.15, 1, 1);
+               box-shadow: 0 0px 5px 0px white;
+               border-top-right-radius: 5px;
+               border-top-left-radius: 5px;
+          }
+     }
+
+     &:hover .dropdown {
+          transform: scaleY(1);
+
+          &::before {
+               transform: scaleX(1);
+               transform-origin: bottom;
+               left: 0;
+          }
+     }
+}
+
+/***************************
+ *               COMPONENTS
+***************************/
+
+/*
+ * 1st LVL
+ */
+
+.EmailsTemplates {
+     display: flex;
+     height: 240px;
+}
+
+.LogsTemplates {
+     display: flex;
+     height: 210px;
+}
+
+/*
+ * 2nd LVL
+ */
+
+.LeftSide {
+     padding-right: 15px;
+     margin-right: 25px;
+     border-right: dotted 1px rgb(203, 220, 224);
+     font-family: $font-fam1;
+}
+
+.RightSide {
+
+     @keyframes scan-effect {
+          0% {
+               transform: translateX(-100%);
+               opacity: 1;
+          }
+
+          100% {
+               transform: translateX(0%);
+               opacity: 1;
+          }
+     }
+
+     height: 100%;
+     display: flex;
+     align-items: center;
+     position: relative;
+
+     .active::after {
+          content: "";
+          top: -10%;
+          left: 0;
+          width: 100%;
+          height: 120%;
+          position: absolute;
+          box-shadow: 20px 0px 30px -30px rgb(100, 100, 100);
+          opacity: 0;
+          pointer-events: none;
+          animation: scan-effect 500ms linear;
+     }
+
+     textarea {
+          overflow: hidden;
+          resize: none;
+          border: none;
+          background: none;
+          font-size: 0.86rem;
+          line-height: 1.25rem;
+          letter-spacing: 0.7px;
+          color: rgb(43, 76, 95);
+
+          font-family: $font-fam3;
+
+          &:focus {
+               outline: none;
+          }
+     }
+}
+
+/*
+ * 3rd LVL
+ */
+
+// 1. COPY
+.CopySection {
+     @keyframes copyBtn-effect {
+          0% {
+               transform-origin: left;
+               transform: scaleX(0);
+          }
+
+          50% {
+               transform-origin: left;
+               transform: scaleX(1);
+          }
+
+          70% {
+               transform-origin: right;
+               transform: scaleX(1);
+               opacity: 0.6;
+          }
+
+          100% {
+               transform-origin: right;
+               transform: scaleX(0);
+               opacity: 0;
+          }
+     }
+
+     display: flex;
+     align-items: right;
+     justify-content: flex-end;
+
+     legend {
+          @include legend;
+     }
+
+     button {
+          position: relative;
+          @include form-font;
+          @include uncheked-buttons;
+          font-family: $font-fam1;
+     }
+
+     .active::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: $checked-button-bkg;
+          left: 0;
+          pointer-events: none;
+          box-shadow: 0 0 0 1px $checked-button-border-clr;
+          border-radius: 1px;
+          transform: scaleX(0);
+          transform-origin: left;
+          opacity: 0.9;
+          animation: copyBtn-effect 800ms linear;
+          background: rgb(49, 156, 170);
+     }
+}
+
+// 2. RADIO
+.RadioSection {
+     display: flex;
+     align-items: right;
+     justify-content: flex-end;
+     @include form-font;
+     font-weight: 500;
+
+     legend {
+          @include legend;
+     }
+
+     .Radio {
+          input {
+               display: none;
+          }
+
+          label {
+               @include uncheked-buttons;
+          }
+
+          input:checked+label {
+               position: relative;
+               background: $checked-button-bkg;
+               color: $checked-button-font-clr;
+               z-index: 1;
+               box-shadow: 0 0 0 1px $checked-button-border-clr;
+          }
+     }
+}
+
+// 3. RESET
+.ResetSection {
+     display: flex;
+     align-items: right;
+     justify-content: flex-end;
+
+     legend {
+          @include legend;
+     }
+
+     input {
+          font-size: 0.6rem;
+          letter-spacing: 1px;
+          height: $left-components-height;
+          padding: 0 6px;
+          color: #888;
+          background: white;
+          border: solid 1px #bbb;
+          border-radius: 2px;
+          font-family: $font-fam1;
+     }
+}
+
+// 4. TextField
+.TextFieldSection {
+     display: flex;
+     align-items: right;
+     justify-content: flex-end;
+     @include form-font;
+
+     legend {
+          @include legend;
+     }
+
+     input {
+          border: none;
+          box-shadow: 0 0 0 1px $button-border-clr;
+          border-radius: 2px;
+          padding: 0 10px;
+          height: $left-components-height;
+          width: 120px;
+          font-family: $font-fam1;
+
+          &:focus {
+               outline: none;
+          }
+
+          &:valid {
+               box-shadow: 0 0 1px 1px rgb(116, 233, 116);
+          }
+
+          &::placeholder {
+               font-size: 0.76rem;
+          }
+     }
+}
