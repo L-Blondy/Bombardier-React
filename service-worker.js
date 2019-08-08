@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Bombardier-React/precache-manifest.23e23856edb1138b53a43ebfb2cb318b.js"
+  "/Bombardier-React/precache-manifest.3bc65378676e00796c96da763e085460.js"
 );
 
 self.addEventListener('message', (event) => {
