@@ -30,7 +30,7 @@ const template = {
 
 class LogsTemplates extends React.Component {
 
-	static Name = "LogsTemplates";
+	static constName = "LogsTemplates";
 
 	static shouldComponentUpdate ( nextProps, nextState ) {
 		const nextP = nextProps.textData;
@@ -78,7 +78,7 @@ class LogsTemplates extends React.Component {
 						<div className="wrap">
 							<CopySection
 								toggleCopyAnimation={ this.props.textData.copyLogsTemplates }
-								toggleCopyCmd={ ( e ) => this.props.toggleCopyCmd( e, this.constructor.name ) }
+								toggleCopyCmd={ ( e ) => this.props.toggleCopyCmd( e, "LogsTemplates" ) }
 							/>
 							<legend></legend>
 						</div>

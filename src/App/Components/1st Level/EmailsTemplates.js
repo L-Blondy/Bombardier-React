@@ -28,7 +28,7 @@ const templates = {
 
 class EmailsTemplates extends React.Component {
 
-	static Name = "EmailsTemplates";
+	static constName = "EmailsTemplates";
 
 	static shouldComponentUpdate ( nextProps, nextState ) {
 
@@ -46,6 +46,7 @@ class EmailsTemplates extends React.Component {
 	}
 
 	render = () => {
+		console.log( this.props.textData.copyEmailsTemplates )
 		const { Language, Strike, Gender, Name, Incident } = this.props.textData;
 
 		return (
@@ -85,7 +86,7 @@ class EmailsTemplates extends React.Component {
 					/>
 					<CopySection
 						toggleCopyAnimation={ this.props.textData.copyEmailsTemplates }
-						toggleCopyCmd={ ( e ) => this.props.toggleCopyCmd( e, this.constructor.name ) }
+						toggleCopyCmd={ ( e ) => this.props.toggleCopyCmd( e, "EmailsTemplates" ) }
 					/>
 					<ResetSection
 						handleReset={ this.props.handleReset }

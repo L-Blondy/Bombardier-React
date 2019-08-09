@@ -7,21 +7,20 @@ function HOC_1st_Lvl ( TemplateComponent, testArg ) {
 		shouldComponentUpdate = testArg;
 
 		componentDidMount = () => {
-			if ( document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Language }` ) )
-				document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Language }` ).checked = true
-			document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Strike }` ).checked = true;
+			if ( document.querySelector( `.${ TemplateComponent.constName } .${ this.props.textData.Language }` ) )
+				document.querySelector( `.${ TemplateComponent.constName } .${ this.props.textData.Language }` ).checked = true
+			document.querySelector( `.${ TemplateComponent.constName } .${ this.props.textData.Strike }` ).checked = true;
 		}
 
 		componentWillUpdate = () => {
-			document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Strike }` ).checked = false;
+			document.querySelector( `.${ TemplateComponent.constName } .${ this.props.textData.Strike }` ).checked = false;
 		}
 
 		componentDidUpdate = () => {
-			document.querySelector( `.${ TemplateComponent.Name } .${ this.props.textData.Strike }` ).checked = true;
+			document.querySelector( `.${ TemplateComponent.constName } .${ this.props.textData.Strike }` ).checked = true;
 		}
 
 		render () {
-			//console.log( testArg )
 			return (
 				<TemplateComponent { ...this.props } />
 			)

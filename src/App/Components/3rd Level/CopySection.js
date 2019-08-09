@@ -8,10 +8,11 @@ class CopySection extends React.Component {
 
 	render = () => {
 
-		const { toggleCopyCmd, toggleCopyAnimation, className } = this.props;
+		console.log( this.props )
+		const { toggleCopyCmd, toggleCopyAnimation } = this.props;
 
 		return (
-			<div className={ "CopySection " + className }>
+			<div className={ "CopySection" }>
 				<button
 					onClick={ toggleCopyCmd }
 					className={ toggleCopyAnimation }

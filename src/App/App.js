@@ -12,7 +12,9 @@ class App extends React.Component {
 		Incident: "",
 		Voicemail: "",
 		Skype: "",
-		Email: ""
+		Email: "",
+		copyLogsTemplates: "active",
+		copyEmailsTemplates: "active",
 	}
 
 	getRadio = ( e ) => {
@@ -39,6 +41,7 @@ class App extends React.Component {
 	}
 
 	toggleCopyCmd = ( e, templateName ) => {
+		console.log( `copy${ templateName }` )
 		this.setState( { [ `copy${ templateName }` ]: "inactive" } )
 		setTimeout( () => this.setState( { [ `copy${ templateName }` ]: "active" } ), 17 )
 
